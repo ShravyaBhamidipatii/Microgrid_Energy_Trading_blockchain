@@ -1,0 +1,63 @@
+OUTPUT PARAMETERS- 
+
+1. DEPLOY
+2. registerMicrogrid
+Use this function to register microgrids.
+
+Field Name	Example Value
+_energyCapacity	100 (kWh)
+_energyPrice	2000000000000000 (wei = 0.002 ETH)
+Steps in Remix:
+
+Select the address of the microgrid (use accounts in Remix).
+Input the above values.
+Click on registerMicrogrid.
+Repeat this with different addresses for multiple microgrids. Example:
+
+Account 1: _energyCapacity = 100, _energyPrice = 2000000000000000
+Account 2: _energyCapacity = 150, _energyPrice = 3000000000000000
+3. listEnergyForSale
+Microgrid owners list energy for sale.
+
+Field Name	Example Value
+_amount	50 (kWh)
+Steps in Remix:
+
+Use the same account that registered a microgrid.
+Input 50 as _amount and call listEnergyForSale.
+4. buyEnergy
+Buyers purchase energy from registered microgrids.
+
+Field Name	Example Value
+_seller	Address of Seller
+_amount	20 (kWh)
+Payment (value):
+
+totalPrice = _amount × energyPrice
+Example:
+If _seller has energyPrice = 2000000000000000 (0.002 ETH):
+20 × 0.002 ETH = 0.04 ETH
+Steps in Remix:
+
+Use a buyer account (different from seller).
+Input _seller (e.g., Account 1 address).
+Input _amount (e.g., 20).
+Set the value field to 40000000000000000 (0.04 ETH).
+Click on buyEnergy.
+5. updateEnergyPrice
+Registered microgrids can update their energy price.
+
+Field Name	Example Value
+_newPrice	1000000000000000 (0.001 ETH)
+Steps in Remix:
+
+Use the same account that registered the microgrid.
+Input 1000000000000000 for _newPrice.
+Click on updateEnergyPrice.
+6. withdraw
+Contract owner withdraws funds accumulated in the contract.
+
+Steps in Remix:
+
+Use the owner account (deployer).
+Click on withdraw.
